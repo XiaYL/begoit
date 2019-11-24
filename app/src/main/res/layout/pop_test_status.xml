@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/black_transparent">
+
+    <RelativeLayout
+        android:layout_width="500dp"
+        android:layout_height="400dp"
+        android:paddingLeft="@dimen/dp_18"
+        android:paddingRight="@dimen/dp_18"
+        android:background="@drawable/bg_white_round_gray_line_radius12">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_18"
+            android:textColor="@color/common_text_black"
+            android:textStyle="bold"
+            android:text="答题中"
+            android:textSize="@dimen/dp_20"/>
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_18"
+            android:layout_marginTop="@dimen/dp_18"
+            android:src="@mipmap/ic_close"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_94"
+            android:divider="@color/white"
+            android:padding="1dp"
+            android:scrollbars="none" />
+
+        <TextView
+            android:id="@+id/tv_commit"
+            android:layout_width="@dimen/dp_191"
+            android:layout_height="@dimen/dp_40"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_16"
+            android:background="@drawable/bg_yellow_round_no_line"/>
+    </RelativeLayout>
+
+</LinearLayout>

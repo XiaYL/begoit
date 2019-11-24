@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_no_net"/>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_gray_a8"
+        android:textSize="@dimen/dp_14"
+        android:text="网络连接失败，点击重新加载"/>
+
+    <TextView
+        android:id="@+id/tv_button"
+        android:layout_width="300dp"
+        android:layout_height="@dimen/dp_40"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:background="@drawable/bg_yellow_round_no_line"
+        android:text="查看已下载课程"/>
+
+</com.zhy.autolayout.AutoLinearLayout>

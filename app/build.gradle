@@ -1,0 +1,128 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+//使用greendao
+
+
+def androids = rootProject.ext.androids // 配置
+def librarys = rootProject.ext.librarys // 依赖
+
+def keystore = rootProject.ext.keystore
+def static releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC+8"))
+}
+
+android {
+    compileSdkVersion androids.compileSdkVersion
+    buildToolsVersion androids.buildToolsVersion
+    defaultConfig {
+        applicationId "com.begoit.mooc.offline"
+        minSdkVersion androids.minSdkVersion
+        targetSdkVersion androids.targetSdkVersion
+        versionCode androids.versionCode
+        versionName androids.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        config_key {
+            keyAlias keystore.keyAlias
+            keyPassword keystore.keyPassword
+            storeFile file('begoit.jks')
+            storePassword keystore.storePassword
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.config_key
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            zipAlignEnabled false
+            signingConfig signingConfigs.config_key
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace("app","离线学习_v${defaultConfig.versionName}_${releaseTime()}")
+                outputFileName = fileName
+            }
+        }
+    }
+
+    //greendao配置
+    greendao {
+        //版本号，升级时可配置
+        schemaVersion 17
+        daoPackage 'com.begoit.mooc.db'//自动生成代码的包名
+        targetGenDir 'src/main/java'//自动生成代码的目录
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            //这里主要是添加存放kotlin的测试文件夹，不然我们在test里创建kotlin文件夹是没什么效果的
+            test.java.srcDirs += 'src/test/com/begoit/mooc/offline/kotlin'
+            androidTest.java.srcDirs += 'src/androidTest/com/begoit/mooc/offline'
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':library:base_network')
+    implementation project(':library:treerecyclerview')
+//    implementation 'com.github.Jlanglang:TreeRecyclerView:1.2.8.4'
+    // 分包机制(65535限制)
+    implementation librarys.multidex
+    implementation librarys.barlibrary
+    //noinspection GradleCompatible
+    implementation librarys.supportV7
+    implementation 'com.android.support:support-v4:27.+'
+    implementation 'com.android.support:design:27.+'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit:1.0.6'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    // 屏幕适配
+    api librarys.autolayout
+    implementation librarys.butterknife
+    implementation librarys.tkrefreshlayout
+    kapt librarys.butterknifeCompiler
+    implementation librarys.baseRecyclerViewAdapterHelper
+    //glide
+    implementation(librarys.glide) {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor librarys.glide_compiler
+
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.10'
+
+    implementation 'com.yanzhenjie:permission:1.1.0'
+
+    //greendao依赖
+    implementation 'org.greenrobot:greendao:3.2.2'
+    // Stetho core
+    implementation 'com.facebook.stetho:stetho:1.3.1'
+//If you want to add a network helper
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    // eventbus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+}
+repositories {
+    mavenCentral()
+}

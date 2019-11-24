@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="161dp"
+    android:gravity="left">
+
+    <CheckBox
+        android:id="@+id/rb_select_manage"
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_14"
+        android:layout_marginLeft="@dimen/dp_27"
+        android:background="@drawable/checkbox_manage_course"
+        android:button="@null"/>
+
+    <RelativeLayout
+        android:id="@+id/ll_course_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/rb_select_manage"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_16">
+        <ImageView
+            android:id="@+id/iv_course_img"
+            android:layout_width="238dp"
+            android:layout_height="131dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            app:srcCompat="@mipmap/timg"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="131dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_27"
+            android:layout_toRightOf="@+id/iv_course_img">
+            <TextView
+                android:id="@+id/tv_course_name"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_27"
+                android:textColor="@color/common_text_black"
+                android:gravity="left|center"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="@dimen/dp_18"
+                android:text="@string/tab_reconmmend_courses"/>
+            <TextView
+                android:id="@+id/tv_course_school"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_21"
+                android:textColor="@color/common_text_gray"
+                android:layout_below="@+id/tv_course_name"
+                android:layout_marginTop="@dimen/dp_4"
+                android:textSize="@dimen/dp_14"
+                android:singleLine="true"
+                android:gravity="left|center"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="北京理工大学  李凤霞、陈宇峰、高玉金、冷金麟"/>
+
+            <LinearLayout
+                android:id="@+id/load_status_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_learned_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_21"
+                    android:ellipsize="end"
+                    android:gravity="left|bottom"
+                    android:layout_marginBottom="@dimen/dp_6"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="等待中"
+                    android:textColor="@color/common_text_gray"
+                    android:textSize="@dimen/dp_14" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="312dp"
+                    android:layout_height="@dimen/dp_6"
+                    style="@style/loading_pregross"
+                    android:progressDrawable="@drawable/bg_progress_loading"
+                    android:indeterminate="false"
+                    android:mirrorForRtl="true"
+                    android:visibility="visible"
+                    android:max="100"
+                    android:progress="0" />
+            </LinearLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_gray_e5"
+        android:layout_alignParentBottom="true"/>
+</com.zhy.autolayout.AutoRelativeLayout>

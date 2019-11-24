@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="28dp"
+        android:paddingBottom="23dp">
+        <ImageView
+            android:id="@+id/iv_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_21"
+            android:visibility="invisible"
+            app:srcCompat="@mipmap/ic_expand"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_expand"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@string/tab_reconmmend_courses"
+            android:textSize="@dimen/dp_22"
+            android:textColor="@color/common_text_black"/>
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginRight="27dp"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:id="@+id/iv_user_portrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_16"
+                app:srcCompat="@mipmap/img_portrait_mainpage"/>
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_user_portrait"
+                android:layout_marginLeft="@dimen/dp_24"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textSize="@dimen/dp_18"
+                android:textColor="@color/common_text_black"/>
+            
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/fl_download_container"
+                android:layout_marginLeft="@dimen/dp_48"
+                android:layout_centerVertical="true"
+                android:visibility="visible"
+                app:srcCompat="@mipmap/ic_seach"/>
+
+            <FrameLayout
+                android:id="@+id/fl_download_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/tv_user_name">
+                <ImageView
+                    android:id="@+id/iv_download_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="39.5dp"
+                    app:srcCompat="@mipmap/ic_download_normal"/>
+                <TextView
+                    android:id="@+id/download_count"
+                    android:layout_width="@dimen/dp_14"
+                    android:layout_height="@dimen/dp_14"
+                    android:layout_marginLeft="55dp"
+                    android:background="@drawable/bg_red_line_round_round"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp_10"
+                    android:gravity="center"
+                    android:text="3"/>
+            </FrameLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_below="@+id/rl_top">
+    </FrameLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

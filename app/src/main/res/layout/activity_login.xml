@@ -1,0 +1,114 @@
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:gravity="center_vertical|center_horizontal"
+    android:background="@mipmap/bg_login_page"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="446dp"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="446dp"
+            android:layout_height="326.5dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@mipmap/img_login_title" />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_title"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_white_round_gray_line_radius4"
+                android:paddingLeft="52dp"
+                android:paddingRight="52dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dp_24"
+                    android:layout_marginTop="27.5dp"
+                    android:layout_marginBottom="@dimen/dp_30"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/main_yellow"
+                    android:text="登录"/>
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/title"
+                    android:hint="@string/prompt_username"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="@dimen/dp_14"
+                    android:paddingRight="@dimen/dp_14"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/common_text_black"
+                    android:textColorHint="@color/hint_text"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textSize="@dimen/dp_16"
+                    android:background="@drawable/bg_white_round_gray_line_radius4"
+                    android:singleLine="true" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/email"
+                    android:paddingLeft="@dimen/dp_14"
+                    android:paddingRight="@dimen/dp_14"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:textColor="@color/common_text_black"
+                    android:textColorHint="@color/hint_text"
+                    android:hint="@string/prompt_password"
+                    android:text=""
+                    android:textSize="@dimen/dp_16"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/bg_white_round_gray_line_radius4"
+                    android:imeActionId="6"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/email_sign_in_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_below="@+id/password"
+                    android:layout_marginTop="53.5dp"
+                    android:layout_marginBottom="@dimen/dp_40"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:background="@drawable/bg_yellow_round_no_line"
+                    android:text="@string/action_sign_in"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dp_16"/>
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </ScrollView>
+</com.zhy.autolayout.AutoRelativeLayout>

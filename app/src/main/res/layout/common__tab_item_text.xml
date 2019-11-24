@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/iv_tab_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_60"
+    android:gravity="center"
+    android:text="推荐课程"
+    android:singleLine="true"
+    android:maxEms="8"
+    android:ellipsize="end"
+    android:textColor="@color/black" />

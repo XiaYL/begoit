@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+
+def androids = rootProject.ext.androids // 配置
+def librarys = rootProject.ext.librarys // 依赖
+
+android {
+    compileSdkVersion androids.compileSdkVersion
+    buildToolsVersion androids.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:support-v4:27.+'
+    implementation 'com.android.support:design:27.+'
+
+    implementation librarys.supportV7
+    testImplementation librarys.junit
+    androidTestImplementation librarys.runner
+    androidTestImplementation librarys.espresso
+
+    api librarys.okhttp3
+    api librarys.ok3LogInterceptor
+    // gson转换,配合网络框架
+    api librarys.retrofit2ConverterGson
+    // retrofit2支持RxJava2扩展包
+    api librarys.retrofit2AdapterRxjava2
+    // RxJava2
+    api librarys.rxjava
+    // RxJava2安卓扩展包
+    api librarys.rxandroid
+    // fastjson Json转换
+    api librarys.fastjson
+    //    compile('com.squareup.okhttp3:logging-interceptor:3.9.0') {
+    //        exclude module: 'okhttp'
+    //    }
+
+}

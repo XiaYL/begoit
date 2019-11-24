@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_course_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:paddingTop="@dimen/dp_25"
+    android:layout_marginRight="@dimen/dp_54"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_lector_img"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/tv_lector_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_27"
+        android:layout_toRightOf="@+id/iv_lector_img"
+        android:textColor="@color/common_text_black"
+        android:gravity="center"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="@dimen/dp_16"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/tv_job_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_21"
+        android:textColor="@color/text_gray_a8"
+        android:textSize="@dimen/dp_14"
+        android:layout_toRightOf="@+id/iv_lector_img"
+        android:layout_below="@+id/tv_lector_name"
+        android:layout_marginLeft="@dimen/dp_12"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text=""/>
+</com.zhy.autolayout.AutoRelativeLayout>

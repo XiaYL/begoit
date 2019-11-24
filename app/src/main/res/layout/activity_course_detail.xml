@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+   <include
+       android:id="@+id/title"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       layout="@layout/common_layout_title_bar"/>
+
+    <View
+        android:id="@+id/v_contrast_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/title"
+        android:background="@color/white"/>
+
+   <android.support.v4.widget.NestedScrollView
+       android:id="@+id/nsv_container"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_marginTop="@dimen/dp_4"
+       android:fillViewport="true"
+       android:layout_below="@+id/title">
+
+      <com.zhy.autolayout.AutoRelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:descendantFocusability="blocksDescendants">
+
+          <FrameLayout
+              android:id="@+id/video"
+              android:layout_width="676dp"
+              android:layout_height="380dp"
+              android:layout_marginLeft="60dp">
+              <com.begoit.mooc.offline.widget.videoview.VideoPlayer
+                  android:id="@+id/video_view"
+                  android:layout_width="676dp"
+                  android:layout_height="380dp"
+                  android:layout_below="@+id/title"/>
+              <ImageView
+                  android:id="@+id/iv_video_placeImg"
+                  android:layout_width="676dp"
+                  android:layout_height="380dp"
+                  android:src="@drawable/placeholder2"
+                  android:visibility="gone"/>
+          </FrameLayout>
+
+         <TextView
+             android:id="@+id/tv_course_name"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text=""
+             android:layout_below="@+id/title"
+             android:layout_toRightOf="@+id/video"
+             android:layout_marginLeft="74dp"
+             android:layout_marginTop="@dimen/dp_30"
+             android:textSize="@dimen/dp_24"
+             android:textColor="@color/common_text_black"/>
+
+         <com.zhy.autolayout.AutoLinearLayout
+             android:id="@+id/ll_course_info"
+             android:layout_width="416dp"
+             android:layout_height="249.5dp"
+             android:layout_below="@+id/tv_course_name"
+             android:layout_toRightOf="@+id/video"
+             android:layout_marginLeft="74dp"
+             android:layout_marginTop="@dimen/dp_40"
+             android:background="@drawable/bg_gray_f5_radius4_round_gray_line"
+             android:orientation="vertical"
+             android:padding="@dimen/dp_25">
+
+            <TextView
+                android:id="@+id/tv_course_school"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_33"
+                android:textColor="@color/text_gray_666"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dp_16"
+                android:text="授课学校："/>
+            <TextView
+                android:id="@+id/tv_course_level"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_33"
+                android:textColor="@color/text_gray_666"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dp_16"
+                android:text="课程难度："/>
+            <TextView
+                android:id="@+id/tv_course_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_33"
+                android:textColor="@color/text_gray_666"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dp_16"
+                android:text="课程时长："/>
+            <TextView
+                android:id="@+id/tv_course_selected_number_of_people"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_33"
+                android:textColor="@color/text_gray_666"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/dp_16"
+                android:text="学习人数："/>
+
+            <TextView
+                android:id="@+id/tv_course_status"
+                android:layout_width="233dp"
+                android:layout_height="@dimen/dp_40"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="@dimen/dp_18"
+                android:layout_marginTop="@dimen/dp_27"
+                android:layout_marginLeft="@dimen/dp_4"
+                android:background="@drawable/bg_yellow_round_no_line"
+                android:text="下载课程"/>
+         </com.zhy.autolayout.AutoLinearLayout>
+          <View
+              android:id="@+id/line"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/dp_10"
+              android:background="@color/line_gray_f5"
+              android:layout_below="@+id/video"
+              android:layout_marginTop="@dimen/dp_40"/>
+
+            <com.begoit.mooc.offline.widget.viewpager.ScrollIndicatorView
+                android:id="@+id/sivMoretabIndicator"
+                android:layout_width="match_parent"
+                android:layout_below="@+id/line"
+                android:layout_marginLeft="@dimen/dp_33"
+                android:layout_height="@dimen/dp_60" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/sivMoretabIndicator"
+                android:background="@color/line_gray_f5"/>
+
+            <com.begoit.mooc.offline.widget.viewpager.WrapContentHeightViewPager
+                android:id="@+id/vp_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/line1"/>
+      </com.zhy.autolayout.AutoRelativeLayout>
+   </android.support.v4.widget.NestedScrollView>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/suspension_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v_contrast_line"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@color/white">
+        <com.begoit.mooc.offline.widget.viewpager.ScrollIndicatorView
+            android:id="@+id/suspension_moretabindicator"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/v_contrast_line"
+            android:background="@color/white"
+            android:layout_height="@dimen/dp_60" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_gray_f5"/>
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_download_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="@dimen/dp_27">
+        <ImageView
+            android:id="@+id/iv_download_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="39.5dp"
+            app:srcCompat="@mipmap/ic_download_normal"/>
+        <TextView
+            android:id="@+id/download_count"
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_14"
+            android:layout_marginLeft="55dp"
+            android:background="@drawable/bg_red_line_round_round"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_10"
+            android:gravity="center"
+            android:text="3"/>
+    </FrameLayout>
+    <com.begoit.mooc.offline.widget.BaseEmptyView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:visibility="gone"/>
+</com.zhy.autolayout.AutoRelativeLayout>

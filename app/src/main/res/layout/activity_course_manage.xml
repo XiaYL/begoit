@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="match_parent">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:paddingTop="24.5dp"
+        android:paddingBottom="23dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_21"
+            app:srcCompat="@mipmap/ic_back"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:visibility="gone"
+            android:textColor="@color/common_text_black"
+            android:textStyle="bold"
+            android:textSize="@dimen/dp_18"/>
+
+        <TextView
+            android:id="@+id/tv_manage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="管理"
+            android:textColor="@color/main_yellow"
+            android:layout_alignParentRight="true"
+            android:paddingRight="@dimen/dp_27"
+            android:textSize="@dimen/dp_18"/>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_storage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:layout_below="@+id/rl_top"
+        android:gravity="center"
+        android:textSize="@dimen/dp_14"
+        android:textColor="@color/common_text_gray"
+        android:background="@color/line_gray_f5"
+        android:text="已下载94.0M，可用空间14.5G"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_storage"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_manage_courses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_marginRight="@dimen/dp_27"
+            android:gravity="right|center_vertical"
+            android:visibility="gone"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_select_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全选"
+                android:textColor="#333333"
+                android:textSize="@dimen/dp_18"/>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_27"
+                android:layout_marginLeft="@dimen/dp_27"
+                android:background="#CECECE"/>
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除"
+                android:textColor="#E44023"
+                android:textSize="@dimen/dp_18"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlv_courses"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_14" />
+    </LinearLayout>
+
+    <com.begoit.mooc.offline.widget.BaseEmptyView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_storage"
+        android:visibility="gone"/>
+</com.zhy.autolayout.AutoRelativeLayout>

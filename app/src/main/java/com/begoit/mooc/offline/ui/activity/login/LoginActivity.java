@@ -21,6 +21,7 @@ import com.begoit.mooc.offline.R;
 import com.begoit.mooc.offline.base.BaseActivity;
 import com.begoit.mooc.offline.entity.user.UserEntity;
 import com.begoit.mooc.offline.ui.activity.main.MainpageActivity;
+import com.begoit.mooc.offline.ui.activity.setip.SetIpActivity;
 import com.begoit.mooc.offline.ui.adapter.UsersPopAdapter;
 import com.begoit.mooc.offline.ui.service.DownloadCourseService;
 import com.begoit.mooc.offline.utils.AppLogUtil;
@@ -62,7 +63,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter,LoginModelimpl>
     private View popView;
     private ListView users;
 
-    @OnClick({R.id.email, R.id.login_form, R.id.container})
+    @OnClick({R.id.email, R.id.login_form, R.id.container,R.id.setip})
     public void showUsers(View v){
         switch (v.getId()){
             case R.id.email:
@@ -77,6 +78,9 @@ public class LoginActivity extends BaseActivity<LoginPresenter,LoginModelimpl>
                 if (popUsers != null && popUsers.isShowing()){
                     popUsersDismiss();
                 }
+                break;
+            case R.id.setip:
+                startActivity(new Intent(this, SetIpActivity.class));
                 break;
         }
     }

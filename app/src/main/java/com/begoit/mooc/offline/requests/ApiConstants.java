@@ -37,7 +37,7 @@ public class ApiConstants {
     }
 
     public static void setAppHost(String appHost) {
-        sharedPreferences.edit().putString("APP_HOST", appHost);
+        sharedPreferences.edit().putString("APP_HOST", appHost).commit();
     }
 
     public static String getFileHost() {
@@ -45,7 +45,7 @@ public class ApiConstants {
     }
 
     public static void setFileHost(String fileHost) {
-        sharedPreferences.edit().putString("FILE_HOST", fileHost);
+        sharedPreferences.edit().putString("FILE_HOST", fileHost).commit();
     }
 
     public static String getFileUrl(String url) {

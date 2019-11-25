@@ -15,7 +15,7 @@ import butterknife.OnClick;
  * Created by user on 2019/11/25.
  */
 
-public class SetIpActivity extends BaseActivity<SetIpContract.SetIpPresenter, SetIpContract.SetIpModel> implements SetIpContract.SetIpView {
+public class SetIpActivity extends BaseActivity<SetIpPresentImpl, SetIpModelImpl> implements SetIpContract.SetIpView {
 
     @BindView(R.id.APP_HOST)
     EditText APP_HOST;
@@ -34,7 +34,7 @@ public class SetIpActivity extends BaseActivity<SetIpContract.SetIpPresenter, Se
 
     @Override
     protected void initView() {
-
+        mPresenter.setDefaultHosts();
     }
 
     @Override
@@ -58,6 +58,8 @@ public class SetIpActivity extends BaseActivity<SetIpContract.SetIpPresenter, Se
 
         }
         mPresenter.saveHosts(appHost, fileHost);
+        Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     @Override

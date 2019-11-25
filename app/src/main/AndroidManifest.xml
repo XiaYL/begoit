@@ -27,12 +27,13 @@
         android:resizeable="true"
         android:smallScreens="true"
         android:xlargeScreens="true" />
+
     <application
         android:name="com.begoit.mooc.BegoitMoocApplication"
         android:allowBackup="true"
-        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
@@ -57,58 +58,66 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--主页-->
+        <!-- 主页 -->
         <activity
             android:name=".ui.activity.main.MainpageActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTop" />
-        <!--课程详情-->
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 课程详情 -->
         <activity
             android:name=".ui.activity.coursedetail.CourseDetailActivity"
             android:configChanges="orientation"
-            android:screenOrientation="landscape"
-            android:launchMode="singleTop" />
-        <!--学习页面-->
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <!-- 学习页面 -->
         <activity
             android:name=".ui.activity.learning.LearningActivity"
             android:configChanges="orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <!-- 分类课程 -->
+        <activity
+            android:name=".ui.activity.courseKind.CourseKindActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <!-- 课程管理 -->
+        <activity
+            android:name=".ui.activity.courseManage.CourseManageActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <!-- 课程管理 -->
+        <activity
+            android:name=".ui.activity.courseManageForDownload.CourseManageForDownloadActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <!-- 课程搜索 -->
+        <activity
+            android:name=".ui.activity.searchCourse.SearchCourseActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="landscape"
-            android:launchMode="singleTop" />
-        <!--分类课程-->
-        <activity android:name=".ui.activity.courseKind.CourseKindActivity"
+            android:windowSoftInputMode="adjustPan|stateVisible" />
+        <!-- 注册课程成绩 -->
+        <activity
+            android:name=".ui.activity.success.CourseSuccessListActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="landscape"/>
-        <!--课程管理-->
-        <activity android:name=".ui.activity.courseManage.CourseManageActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="landscape"/>
-        <!--课程管理-->
-        <activity android:name=".ui.activity.courseManageForDownload.CourseManageForDownloadActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="landscape"/>
-        <!--课程搜索-->
-        <activity android:name=".ui.activity.searchCourse.SearchCourseActivity"
-            android:launchMode="singleTop"
-            android:windowSoftInputMode="adjustPan|stateVisible"
-            android:screenOrientation="landscape"/>
-        <!--注册课程成绩-->
-        <activity android:name=".ui.activity.success.CourseSuccessListActivity"
-            android:launchMode="singleTop"
-            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"
-            android:screenOrientation="landscape"/>
-        <!--网络切换广播 -->
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <!-- 网络切换广播 -->
         <receiver android:name=".receiver.NetReceiver">
             <intent-filter>
-                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
         <!-- 为了消去加上android:priority="1000"后出现的警告信息，可以设置android:exported属性，指示该服务是否能够被其他应用程序组件调用或跟它交互 -->
         <service
-            android:name="com.begoit.mooc.offline.ui.service.DownloadCourseService"
-            android:exported="true" >
-        <!-- 为防止Service被系统回收，可以通过提高优先级解决，1000是最高优先级，数字越小，优先级越低 -->
-        <!--<intent-filter android:priority="1000"></intent-filter>-->
-    </service>
+            android:name=".ui.service.DownloadCourseService"
+            android:exported="true">
+
+            <!-- 为防止Service被系统回收，可以通过提高优先级解决，1000是最高优先级，数字越小，优先级越低 -->
+            <!-- <intent-filter android:priority="1000"></intent-filter> -->
+        </service>
+
+        <activity android:name=".ui.activity.setip.SetIpActivity"></activity>
     </application>
 
 </manifest>

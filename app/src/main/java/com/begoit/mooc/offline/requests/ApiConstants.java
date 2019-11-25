@@ -1,5 +1,14 @@
 package com.begoit.mooc.offline.requests;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+
+import com.begoit.mooc.BegoitMoocApplication;
+import com.begoit.mooc.offline.utils.SharedPreferencesUtils;
+
+import java.io.File;
+
 /**
  * @author gxj
  * @date 2019/02/16 09:26.
@@ -13,14 +22,39 @@ public class ApiConstants {
     public static String FILE_HOST = "http://120.78.168.211/";//120.78.168.211
     public static String TEST_HOST = "http://easy-mock.com/mock/5997cce9059b9c566dc7e771/leitaijingji_list/";
 
+    private static SharedPreferences sharedPreferences;
 
-    public static String getFileUrl(String url){
-        if (url == null){
+    static {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(BegoitMoocApplication.Companion.getContextInstance());
+        if (TextUtils.isEmpty(getAppHost())) {
+            setAppHost(APP_HOST);
+            setFileHost(FILE_HOST);
+        }
+    }
+
+    public static String getAppHost() {
+        return sharedPreferences.getString("APP_HOST", "");
+    }
+
+    public static void setAppHost(String appHost) {
+        sharedPreferences.edit().putString("APP_HOST", appHost);
+    }
+
+    public static String getFileHost() {
+        return sharedPreferences.getString("FILE_HOST", "");
+    }
+
+    public static void setFileHost(String fileHost) {
+        sharedPreferences.edit().putString("FILE_HOST", fileHost);
+    }
+
+    public static String getFileUrl(String url) {
+        if (url == null) {
             return null;
         }
         if (url.startsWith("/"))
             url = url.substring(1);
-        return FILE_HOST + url;
+        return getFileHost() + url;
     }
 
 
@@ -37,10 +71,10 @@ public class ApiConstants {
                 host = TEST_HOST;
                 break;
             case HostType.TYPE_APP:
-                host = APP_HOST;
+                host = getAppHost();
                 break;
             case HostType.TYPE_FILE_UPLOAD:
-                host = APP_HOST;
+                host = getAppHost();
                 break;
             default:
                 host = "";

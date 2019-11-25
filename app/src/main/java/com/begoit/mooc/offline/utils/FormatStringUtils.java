@@ -21,7 +21,7 @@ public class FormatStringUtils {
         while (true) {
             int index = builder.indexOf("<img src=\"/kinduploadfiles");
             if (index != -1) {
-                builder.insert(index + 10, ApiConstants.FILE_HOST);
+                builder.insert(index + 10, ApiConstants.getFileHost());
             }else {
                 break;
             }
